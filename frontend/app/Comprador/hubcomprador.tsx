@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import { router } from 'expo-router';
-import { TEXT } from '../../constants/plantilla';
+import { Palette, Radius, Spacing, Type, TouchMin } from '@/constants/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { styles} from '../../constants/Styles';
 import Header from '../../components/Header';
@@ -32,7 +32,7 @@ export default function HubComprador() {
             onPress={() => router.push(btn.ruta as any)}
           >
             {btn.icon && (
-              <Ionicons name={btn.icon as any} size={36} color={TEXT.onBrand} />
+              <Ionicons name={btn.icon as any} size={36} color={Palette.ink} />
             )}
             <Text style={styles.botonTexto}>{btn.label}</Text>
           </TouchableOpacity>

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { View, Text, TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
-import { styles } from '../constants/Styles';
-import { Ionicons } from '@expo/vector-icons';
-import { BRAND} from '../constants/plantilla';
+import IconButton from '@/components/IconButton';
+import { Text } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Palette, Radius, Type } from '../constants/theme';
 import { MenuLateral } from './MenuLateral';
 
 type Props={
@@ -16,24 +17,33 @@ export default function Header({title, showBack=true }: Props) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   return (
     <View style={styles.header}>
-      
-        <View style={styles.colorBlock} />
-        
-        <View style={styles.leftSlot}>
-        {/* Boton menu */}
-          <TouchableOpacity onPress={() => setMenuAbierto(true)}>
-            <Ionicons name="menu" size={28} color={BRAND.main} />
-          </TouchableOpacity>
-        </View>
-       {/* titulo*/}
+      <IconButton icon="menu" label="Abrir menú" onPress={() => setMenuAbierto(true)} />
+
       {title ? <Text style={styles.title}>{title}</Text> : <View style={{ flex: 1 }} />}
-      {/* Boton retorno */}
+
       {showBack && (
-      <TouchableOpacity style={styles.iconBtn} onPress={() => router.back()}>
-        <Ionicons name="return-up-back-outline" size={28} color="black" />
-      </TouchableOpacity>
-    )}
-    <MenuLateral visible={menuAbierto} onClose={() => setMenuAbierto(false)} />
+        <IconButton icon="arrow-back" label="Volver" onPress={() => router.back()} />
+      )}
+
+      <MenuLateral visible={menuAbierto} onClose={() => setMenuAbierto(false)} />
     </View>
   );
 }
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: Palette.lima,
+    borderBottomLeftRadius: Radius.xl,
+    borderBottomRightRadius: Radius.xl,
+    paddingTop: 52,
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+  },
+  title: {
+    ...Type.title3,
+    color: Palette.ink,
+    flex: 1,
+  },
+});

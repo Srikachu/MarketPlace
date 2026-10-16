@@ -3,7 +3,7 @@ import {
   Modal, Pressable, Animated, Text, TouchableOpacity, StyleSheet, useWindowDimensions,
 } from 'react-native';
 import { router, usePathname } from 'expo-router';
-import { SPACING, TEXT, SURFACE } from '../constants/plantilla';
+import { Palette, Spacing } from '../constants/theme';
 
 const opciones = [
   { label: 'Editar perfil',    ruta: '/Comprador/hubcomprador' },
@@ -70,10 +70,10 @@ const s = StyleSheet.create({
     left: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: SURFACE.screen,
+    backgroundColor: Palette.card,
     paddingTop: 60,
-    paddingHorizontal: SPACING.lg,
+    paddingHorizontal: 	Spacing[6],
   },
-  item: { paddingVertical: SPACING.md },
-  itemTexto: { fontSize: 16, color: TEXT.primary },
+  item: { paddingVertical: Spacing[4] },
+  itemTexto: { fontSize: 16, color: 	Palette.ink },
 });

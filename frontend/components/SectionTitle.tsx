@@ -1,5 +1,5 @@
 import { Text, StyleSheet } from 'react-native';
-import { SPACING, TEXT } from '../constants/plantilla';
+import { Palette, Spacing} from '@/constants/theme';
 
 export function SectionTitle({ children }: { children: string }) {
   return <Text style={s.title}>{children}</Text>;
@@ -10,7 +10,7 @@ const s = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     textAlign: 'center',
-    marginVertical: SPACING.md,
-    color: TEXT.primary,
+    marginVertical: 	Spacing[4],
+    color: 	Palette.ink,
   },
 });

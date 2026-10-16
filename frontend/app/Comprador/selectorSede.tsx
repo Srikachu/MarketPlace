@@ -1,11 +1,10 @@
 // app/Comprador/selectorSede.tsx
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
-import { styles } from '../../constants/Styles';
-import { BRAND, SPACING, RADIUS, TEXT } from '../../constants/plantilla';
+import { styles as globalStyles } from '@/constants/Styles';
+import { Palette, Radius, Spacing, Type} from '@/constants/theme';
 import Header from '../../components/Header';
 import {ActionButton} from '../../components/ActionButton';
-
 const sedes = [
   { id: 1, nombre: 'Sede 1' },
   { id: 2, nombre: 'Sede 2' },
@@ -15,7 +14,7 @@ const sedes = [
 
 export default function SelectorSede() {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={globalStyles.container}>
       {/* Header */}
       <Header title="selector de sede" />
 
@@ -36,21 +35,22 @@ export default function SelectorSede() {
 
 const localStyles = StyleSheet.create({
   lista: {
-    padding: SPACING.lg,
-    gap: SPACING.lg,
+    padding: 	Spacing[6],
+    gap: 	Spacing[6],
   },
   boton: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: SPACING.md,
-    backgroundColor: BRAND.light,
-    borderRadius: RADIUS.md,
-    paddingVertical: SPACING.lg,
-    paddingHorizontal: SPACING.lg,
+    gap: Spacing[4],
+    backgroundColor: Palette.lima,
+    borderRadius: Radius.full,
+    minHeight: 56,
+    paddingHorizontal: Spacing[6],
   },
   botonTexto: {
-    color: TEXT.onBrand,
-    fontSize: 16,
-    fontWeight: '600',
+    ...Type.bodyLg,
+    fontFamily: Type.label.fontFamily,
+    color:Palette.ink,
+    fontSize: 16
   },
 });

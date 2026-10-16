@@ -4,7 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 import Header from '../../components/Header';
 import { UserRow } from '../../components/UserRow';
 import { SectionTitle } from '../../components/SectionTitle';
-import { SPACING, RADIUS, SURFACE, TEXT, AVATAR } from '../../constants/plantilla';
+import { Palette, Radius, Spacing, Type, TouchMin} from '@/constants/theme';
+
+const AVATAR_MD = 40;
 
 const productos = ['User', 'User', 'User', 'User', 'User', 'User'];
 
@@ -22,9 +24,9 @@ export default function Buscar() {
         <TextInput
           style={localStyles.searchInput}
           placeholder='buscar "hojas examen"'
-          placeholderTextColor={TEXT.muted}
+          placeholderTextColor={Palette.textMuted}
         />
-        <Ionicons name="search" size={20} color={TEXT.muted} style={localStyles.searchIcon} />
+        <Ionicons name="search" size={20} color={Palette.textMuted} style={localStyles.searchIcon} />
       </View>
 
       {/* Lista */}
@@ -39,7 +41,7 @@ export default function Buscar() {
             })
           }
         >
-          <UserRow name={p} size={AVATAR.md} style={localStyles.item} />
+          <UserRow name={p} size={AVATAR_MD} style={localStyles.item} />
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -49,11 +51,11 @@ export default function Buscar() {
 const localStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: SURFACE.screen,
+    backgroundColor: Palette.ground,
   },
   titulo: {
     fontSize: 13,
-    color: TEXT.muted,
+    color: Palette.textMuted,
     marginLeft: 16,
     marginTop: 16,
     marginBottom: 8,
@@ -61,23 +63,26 @@ const localStyles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: SURFACE.input,
-    borderRadius: RADIUS.pill,
-    marginHorizontal: SPACING.lg,
-    marginVertical: SPACING.md,
-    paddingHorizontal: SPACING.lg,
+    backgroundColor: Palette.card,
+    borderWidth: 1,
+    borderColor: Palette.border,
+    borderRadius: Radius.full,
+    minHeight: TouchMin,
+    marginHorizontal: Spacing[6],
+    marginVertical: Spacing[4],
+    paddingHorizontal: Spacing[6],
   },
   searchInput: {
+    ...Type.bodySm,
     flex: 1,
-    paddingVertical: 10,
-    fontSize: 14,
-    color: TEXT.primary,
+    paddingVertical: Spacing[2],
+    color: Palette.ink,
   },
   searchIcon: {
-    marginLeft: SPACING.sm,
+    marginLeft: Spacing[2]
   },
   item: {
-    paddingHorizontal: SPACING.lg,
-    paddingVertical: SPACING.md,
+    paddingHorizontal: 	Spacing[6],
+    paddingVertical: Spacing[4],
   },
 });

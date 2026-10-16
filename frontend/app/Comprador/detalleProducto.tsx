@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import { UserRow } from '../../components/UserRow';
 import { ActionButton } from '../../components/ActionButton';
 import { styles } from '../../constants/Styles';
-import { SPACING, RADIUS, SURFACE, TEXT } from '../../constants/plantilla';
+import { Palette, Radius, Spacing, Type, TouchMin } from '@/constants/theme';
 
 export default function DetalleProducto() {
   // Datos que llegan desde "buscar" (por ahora de ejemplo)
@@ -27,7 +27,7 @@ export default function DetalleProducto() {
 
           {/* Imagen */}
           <View style={localStyles.imagen}>
-            <Ionicons name="image-outline" size={48} color={TEXT.muted} />
+            <Ionicons name="image-outline" size={48} color={Palette.textMuted} />
           </View>
 
           {/* Descripción */}
@@ -40,7 +40,7 @@ export default function DetalleProducto() {
           {/* Botón */}
           <ActionButton
             label="Estoy interesado"
-            variant="main"
+            variant="primary"
             icon="heart"
             onPress={() => {
               // TODO: aquí va la acción (enviar interés, abrir chat, etc.)
@@ -54,35 +54,35 @@ export default function DetalleProducto() {
 
 const localStyles = StyleSheet.create({
   contenedor: {
-    padding: SPACING.lg,
+    padding: 	Spacing[6],
   },
   card: {
-    backgroundColor: SURFACE.card,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.md,
-    gap: SPACING.md,
+    backgroundColor: Palette.card,
+    borderRadius: Radius.lg,
+    padding: 	Spacing[4],
+    gap: 	Spacing[4],
   },
   nombreProducto: {
     fontSize: 18,
     fontWeight: '600',
-    color: TEXT.primary,
+    color: Palette.ink,
   },
   imagen: {
     height: 200,
-    borderRadius: RADIUS.md,
+    borderRadius: Radius.md,
     backgroundColor: '#f0f0f0',
     justifyContent: 'center',
     alignItems: 'center',
   },
   descripcionBox: {
     backgroundColor: '#f0f0f0',
-    borderRadius: RADIUS.sm,
-    padding: SPACING.md,
+    borderRadius: Radius.sm,
+    padding: Spacing[4],
     minHeight: 60,
     justifyContent: 'center',
   },
   descripcionTexto: {
     fontSize: 14,
-    color: TEXT.secondary,
+    color: Palette.textMuted,
   },
 });

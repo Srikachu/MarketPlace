@@ -2,7 +2,7 @@
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { styles } from '../../constants/Styles';
-import { BRAND, SPACING, RADIUS, TEXT, SURFACE } from '../../constants/plantilla';
+import { Palette, Radius, Spacing } from '@/constants/theme';
 import Header from '../../components/Header';
 import { UserRow } from '../../components/UserRow';
 
@@ -24,7 +24,7 @@ export default function Historial() {
           <View key={i} style={localStyles.card}>
             {/* Botón eliminar */}
             <TouchableOpacity style={localStyles.deleteBtn}>
-              <Ionicons name="close-circle" size={24} color={BRAND.main} />
+              <Ionicons name="close-circle" size={24} color={Palette.lima} />
             </TouchableOpacity>
 
             {/* Fila usuario */}
@@ -43,13 +43,13 @@ export default function Historial() {
 
 const localStyles = StyleSheet.create({
   lista: {
-    padding: SPACING.lg,
-    gap: SPACING.lg,
+    padding: Spacing[6],
+    gap: Spacing[6],
   },
   card: {
-    backgroundColor: SURFACE.card,
-    borderRadius: RADIUS.lg,
-    padding:  SPACING.md,
+    backgroundColor: Palette.card,
+    borderRadius: Radius.lg,
+    padding:  Spacing[4],
     gap: 10,
     position: 'relative',
   },
@@ -61,15 +61,15 @@ const localStyles = StyleSheet.create({
   },
   descripcionBox: {
     backgroundColor: '#f0f0f0',
-    borderRadius: RADIUS.sm,
-    padding: SPACING.md,
+    borderRadius: Radius.sm,
+    padding: Spacing[4],
     minHeight: 60,
     justifyContent: 'center',
     alignItems: 'center',
   },
   descripcionTexto: {
     fontSize: 14,
-    color: TEXT.secondary,
+    color: 	Palette.textMuted,
     fontStyle: 'italic',
     textAlign: 'center',
   },
