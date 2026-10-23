@@ -12,12 +12,12 @@ const opciones = [
   { label: 'Mis pedidos', ruta: '/Comprador/historialComprador' },
   { label: 'Favoritos', ruta: '/Comprador/historialComprador' },
   { label: 'Mensajes', ruta: '/Comprador/historialComprador' },
-  { label: 'Tiendas física', ruta: '/Comprador/historialComprador' },
+  { label: 'Tiendas física', ruta: '/Comprador/selectorSede' },
 ];
 const opcionesInf = [
   { label: 'Ajustes', ruta: '/Comprador/historialComprador' },
   { label: 'Ayuda', ruta: '/Comprador/historialComprador' },
-  { label: 'Cerrar sesión', ruta: '/Comprador/historialComprador' },
+  { label: 'Cerrar sesión', ruta: '/login' },
 ];
 // Datos temporales
 const usuario = { nombre: 'Nombre Apellido', correo: 'correo@ejemplo.com' };

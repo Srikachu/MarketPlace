@@ -9,10 +9,11 @@ import { Archivo_700Bold, Archivo_800ExtraBold, useFonts as useArchivo } from '@
 import { DMSans_400Regular, DMSans_500Medium, DMSans_700Bold, useFonts as useDMSans } from '@expo-google-fonts/dm-sans';
 
 import { Palette } from '@/constants/theme';
+
 SplashScreen.preventAutoHideAsync();
 
 export const unstable_settings = {
-  anchor: '(tabs)',
+  anchor: 'index',
 };
 
 const AppTheme = {
@@ -40,9 +41,15 @@ export default function RootLayout() {
   if (!fontsReady) return null;
   return (
     <ThemeProvider value={AppTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="intro" />
+        <Stack.Screen name="login" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen
+          name="modal"
+          options={{ presentation: 'modal', headerShown: true, title: 'Modal' }}
+        />
       </Stack>
       <StatusBar style="dark" />
     </ThemeProvider>
